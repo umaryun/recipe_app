@@ -1,4 +1,3 @@
-//import vegetables from "../images/vegetables.jpg";
 import React from "react";
 
 interface Recipe{

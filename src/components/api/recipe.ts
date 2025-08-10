@@ -46,5 +46,10 @@ export const fetchFullRecipe = async (id: number): Promise<FullRecipe> => {
     if (!response.ok) throw new Error("Failed to fetch recipes");
     return response.json()
 }
+export const fetchSearchRecipe = async (name: string): Promise<RecipesResponse> => {
+    const response = await fetch(`https://dummyjson.com/recipes/search?q=${name}`);
+    if (!response.ok) throw new Error("Failed to fetch recipes");
+    return response.json()
+}
 
 

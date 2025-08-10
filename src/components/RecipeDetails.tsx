@@ -32,7 +32,6 @@ const RecipeDetails = () => {
     
     const queryClient = useQueryClient();
     const { data, isPending, error } = useQuery<FullRecipe>({ queryKey: ["recipes"], queryFn: () => fetchFullRecipe(iD) })
-    //const { data, isPending, error } = useQuery<FullRecipesResponse>({ queryKey: ["recipe"], queryFn: fetchFullRecipe(id)})
     
     if (isPending) {
         return <Loading />
@@ -44,8 +43,6 @@ const RecipeDetails = () => {
         console.log("no data")
         return <Loading />
     }
-    console.log(data)
-
 
     return (
         <div className="w-full h-full bg-white">
@@ -75,7 +72,6 @@ const RecipeDetails = () => {
                         {data["instructions"].map((instruction, index) => (
                             <li key={index} className="text-[20px] text-gray-800 font-[400] font-serif">{instruction}</li>
                         ))}
-
                     </ol>
                 </div>
 
