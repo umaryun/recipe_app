@@ -33,7 +33,11 @@ const Recipes = () => {
             return <p>Error fetching recipe of search: {error.message} </p>
         }
         if (!data) {
-            return <Loading />
+            return (
+                <>
+                    <p>No elements for the search</p>
+                    <Loading />
+                    </>)
         }
         recipes = data.recipes
     } else {
@@ -51,7 +55,8 @@ const Recipes = () => {
     }
     return (
         <div className="flex justify-around flex-wrap w-full h-[100%] py-3">
-            {recipes.map((recipe: Recipe) => (
+            { recipes.length < 1 ? <p className="font-bold text-2xl">No known recipes for the search 😢</p> :
+                recipes.map((recipe: Recipe) => (
                 <div key={recipe.id} className="my-3 mx-2">
                     <RecipeCard id={recipe.id} name={recipe.name} image={recipe.image} />
                 </div>
